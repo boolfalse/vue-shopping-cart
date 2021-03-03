@@ -5,6 +5,7 @@
       v-for="product in products"
       :key="product.article"
       v-bind:product_data="product"
+      @sendDataFromChild="getDataFromChild"
   />
 </div>
 </template>
@@ -72,7 +73,12 @@ export default {
       ]
     }
   },
-  computed: {}
+  computed: {},
+  methods: {
+    getDataFromChild(data) {
+      console.log(data)
+    }
+  }
 }
 </script>
 
