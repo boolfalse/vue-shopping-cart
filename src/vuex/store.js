@@ -31,6 +31,16 @@ export default new Vuex.Store({
         },
         REMOVE_FROM_CART: (state, index) => {
             state.cart.splice(index, 1)
+        },
+        DECREMENT_CART_ITEM: (state, index) => {
+            let qty = state.cart[index].quantity;
+            if (qty > 1) {
+                state.cart[index].quantity = qty - 1;
+            }
+        },
+        INCREMENT_CART_ITEM: (state, index) => {
+            let qty = state.cart[index].quantity;
+            state.cart[index].quantity = qty + 1;
         }
     },
     actions: { // async tool for changing the "state" data
@@ -54,6 +64,12 @@ export default new Vuex.Store({
         },
         DELETE_FROM_CART({commit}, index) {
             commit('REMOVE_FROM_CART', index)
+        },
+        DECREMENT_ITEM({commit}, index) {
+            commit('DECREMENT_CART_ITEM', index)
+        },
+        INCREMENT_ITEM({commit}, index) {
+            commit('INCREMENT_CART_ITEM', index)
         }
     },
     getters: { // opportunity for getting the "state" data with shortcuts

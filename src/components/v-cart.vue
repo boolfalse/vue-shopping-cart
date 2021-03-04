@@ -10,6 +10,8 @@
         :key="item.article"
         :cart_item_data="item"
         @deleteFromCart="deleteFromCart(index)"
+        @decrementItem="decrementItem(index)"
+        @incrementItem="incrementItem(index)"
     />
     <div class="v-cart__total">
       <p class="v-cart__total_name">Total price:</p>
@@ -50,10 +52,18 @@ export default {
   },
   methods: {
     ...mapActions([
-        'DELETE_FROM_CART'
+        'DELETE_FROM_CART',
+        'DECREMENT_ITEM',
+        'INCREMENT_ITEM',
     ]),
     deleteFromCart(index) {
       this.DELETE_FROM_CART(index)
+    },
+    decrementItem(index) {
+      this.DECREMENT_ITEM(index)
+    },
+    incrementItem(index) {
+      this.INCREMENT_ITEM(index)
     }
   }
 }
@@ -71,7 +81,7 @@ export default {
     padding: $padding*2 $padding*3;
     display: flex;
     justify-content: center;
-    background: #26ae68;
+    background: $green-bg;
     color: #ffffff;
     font-size: 20px;
   }
