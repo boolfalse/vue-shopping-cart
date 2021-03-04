@@ -6,7 +6,10 @@
       <p>Price: ${{cart_item_data.price}}</p>
       <p>Article: {{cart_item_data.article}}</p>
     </div>
-    <div class="v-cart-item__quantity"></div>
+    <div class="v-cart-item__quantity">
+      <p>Qty: {{cart_item_data.quantity}}</p>
+    </div>
+    <button @click="deleteFromCart">Delete</button>
   </div>
 </template>
 
@@ -25,7 +28,14 @@ export default {
     return {}
   },
   computed: {},
-  methods: {}
+  methods: {
+    deleteFromCart() {
+      this.$emit('deleteFromCart')
+    }
+  },
+  mounted() {
+    this.$set(this.cart_item_data, 'quantity', 1); // $set without "$" sign will disable the reactivity
+  }
 }
 </script>
 
