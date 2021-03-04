@@ -11,12 +11,12 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: "Catalog",
+            name: 'catalog',
             component: vCatalog
         },
         {
             path: '/cart',
-            name: "Cart",
+            name: 'cart',
             component: vCart,
             props: true
         }
