@@ -14,6 +14,9 @@ export default new Vuex.Store({
     mutations: { // synchronized tool for changing the "state" data
         SET_PRODUCTS_TO_STATE: (state, products) => {
             state.products = products;
+        },
+        SET_CART: (state, product) => {
+            state.cart.push(product);
         }
     },
     actions: { // async tool for changing the "state" data
@@ -31,6 +34,9 @@ export default new Vuex.Store({
 
                 return err;
             });
+        },
+        ADD_TO_CART({commit}, product) {
+            commit('SET_CART', product);
         }
     },
     getters: { // opportunity for getting the "state" data with shortcuts

@@ -24,7 +24,7 @@ export default {
   computed: {},
   methods: {
     sendDataToParent() {
-      this.$emit('sendDataFromChild', this.product_data.article)
+      this.$emit('addToCart', this.product_data)
     }
   }
 }
@@ -38,8 +38,7 @@ export default {
   margin-bottom: $margin*2;
 
   &__image {
-    max-width: 100px;
-    width: 50%;
+    width: 100px;
   }
 }
 </style>

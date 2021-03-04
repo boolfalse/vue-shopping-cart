@@ -1,13 +1,15 @@
 <template>
-<div class="v-catalog">
-  <h2>Catalog</h2>
-  <v-catalog-item
-      v-for="product in PRODUCTS"
-      :key="product.article"
-      v-bind:product_data="product"
-      @sendDataFromChild="getDataFromChild"
-  />
-</div>
+  <div class='v-catalog'>
+    <h1>Catalog</h1>
+    <div class="v-catalog__list">
+      <v-catalog-item
+          v-for="product in PRODUCTS"
+          :key="product.article"
+          :product_data="product"
+          @addToCart="addToCart"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -30,10 +32,11 @@ export default {
   },
   methods: {
     ...mapActions([
-      'GET_PRODUCTS_FROM_API'
+      'GET_PRODUCTS_FROM_API',
+      'ADD_TO_CART'
     ]),
-    getDataFromChild(data) {
-      console.log(data)
+    addToCart(data) {
+      this.ADD_TO_CART(data)
     }
   },
   mounted() {
