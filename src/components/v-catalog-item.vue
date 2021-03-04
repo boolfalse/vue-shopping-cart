@@ -3,7 +3,7 @@
     <img class="v-catalog-item__image" v-bind:src="require('./../assets/images/' + product_data.image)" alt="Image">
     <p class="v-catalog-item__name">{{product_data.name}}</p>
     <p class="v-catalog-item__price">Price: ${{product_data.price}}</p>
-    <button class="v-catalog-item__add_to_cart_btn btn" @click="sendDataToParent">Add to cart</button>
+    <button class="v-catalog-item__add_to_cart_btn btn" @click="addToCart">Add to cart</button>
   </div>
 </template>
 
@@ -23,8 +23,8 @@ export default {
   },
   computed: {},
   methods: {
-    sendDataToParent() {
-      this.$emit('addToCart', this.product_data)
+    addToCart() {
+      this.$emit('addToCart', this.product_data);
     }
   }
 }
@@ -33,7 +33,7 @@ export default {
 <style lang="scss">
 .v-catalog-item {
   flex-basis: 25%;
-  box-shadow: 0 0 8px #e0e0e0;
+  box-shadow: 0 0 8px 0 #e0e0e0;
   padding: $padding*2;
   margin-bottom: $margin*2;
 

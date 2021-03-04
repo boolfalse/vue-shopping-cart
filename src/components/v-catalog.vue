@@ -45,12 +45,12 @@ export default {
   },
   mounted() {
     this.GET_PRODUCTS_FROM_API()
-        .then(response => {
+        .then((response) => {
           if (response.data) {
             console.log("Got Response.");
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err.message);
         });
   }

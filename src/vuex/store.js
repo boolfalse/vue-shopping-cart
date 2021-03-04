@@ -2,7 +2,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import axios from 'axios';
+import axios from 'axios'
 
 Vue.use(Vuex);
 
@@ -16,21 +16,18 @@ export default new Vuex.Store({
             state.products = products;
         },
         SET_CART: (state, product) => {
-            if (state.cart.length > 0) {
-                let isProductExists = false;
-                state.cart.map(item => {
-                    if (item.article === product.article) {
-                        isProductExists = true;
-                        item.quantity++;
-                    }
-                });
-
-                if (!isProductExists) {
-                    state.cart.push(product);
+            let isProductExist = false;
+            state.cart.map((item) => {
+                if (item.article === product.article) {
+                    isProductExist = true;
+                    item.quantity++;
                 }
-            } else {
-                state.cart.push(product);
-            }
+            });
+
+            isProductExist || state.cart.push({
+                ...product,
+                quantity: 1
+            })
         },
         REMOVE_FROM_CART: (state, index) => {
             state.cart.splice(index, 1)
