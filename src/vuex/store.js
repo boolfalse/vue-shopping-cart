@@ -7,7 +7,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: { // variables, objects, massives, collections, etc
-        products: []
+        products: [],
+        cart: []
     },
     mutations: { // synchronized tool for changing the "state" data
         SET_PRODUCTS_TO_STATE: (state, products) => {
@@ -34,6 +35,9 @@ export default new Vuex.Store({
     getters: { // opportunity for getting the "state" data with shortcuts
         PRODUCTS(state) {
             return state.products;
+        },
+        CART(state) {
+            return state.cart;
         }
     },
 });
