@@ -16,7 +16,7 @@ export default new Vuex.Store({
             state.products = products;
         },
         SET_CART: (state, product) => {
-            if (state.cart.length) {
+            if (state.cart.length > 0) {
                 let isProductExists = false;
                 state.cart.map(item => {
                     if (item.article === product.article) {
