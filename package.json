@@ -1,4 +1,9 @@
 {
+  "author": "BoolFalse",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boolfalse/vue-shopping-cart.git"
+  },
   "name": "vue-shopping-cart",
   "version": "0.1.0",
   "private": true,

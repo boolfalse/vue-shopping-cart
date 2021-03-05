@@ -1,12 +1,15 @@
-# vue-shopping-cart
 
-## Project setup
+## Vue Shopping Cart
+
+### Project setup
 ```
-npm install
+npm i
+npm i -g json-server
 ```
 
 ### Compiles and hot-reloads for development
 ```
+json-server --watch db.json
 npm run serve
 ```
 
@@ -15,10 +18,12 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Topics
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- VueJS Shopping Cart
+- JSON server
+- VueX
+- Vue Router
+
+### Author
+[BoolFalse](https://boolfalse.com/).
